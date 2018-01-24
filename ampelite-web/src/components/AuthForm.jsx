@@ -5,7 +5,7 @@ import Card, { CardContent, CardActions } from 'material-ui/Card';
 import { Typography, TextField, Button, } from 'material-ui';
 import { PersonAdd, Help } from 'material-ui-icons';
 import { grey } from 'material-ui/colors';
-import { Link } from 'react-router-dom';
+import { LinearProgress } from 'material-ui/Progress';
 
 const styles = theme => ({
     form: {
@@ -33,6 +33,10 @@ const styles = theme => ({
     flexGrow: {
         flex: '1 1 auto',
     },
+    progress: {
+        width: '100%',
+
+    }
 });
 
 
@@ -41,11 +45,31 @@ class AuthForm extends Component {
         super();
         this.state = {
             UserName: '',
-            Password: ''
+            Password: '',
+            completed: 0,
         }
 
     }
 
+    componentDidMount() {
+        this.timer = setInterval(this.progress, 500);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
+    timer: number;
+
+    progress = () => {
+        const { completed } = this.state;
+        if (completed > 100) {
+            this.setState({ completed: 0 });
+        } else {
+            const diff = Math.random() * 10;
+            this.setState({ completed: completed + diff });
+        }
+    };
 
     onSubmit = event => {
         event.preventDefault()
@@ -66,7 +90,11 @@ class AuthForm extends Component {
 
         return (
             <form className={classes.form}>
+
                 <Card>
+                    <div className={classes.progress}>
+                        <LinearProgress mode="determinate" value={this.state.completed} />
+                    </div>
                     <CardContent>
                         <Typography type="headline">{formName}</Typography>
                         <TextField
