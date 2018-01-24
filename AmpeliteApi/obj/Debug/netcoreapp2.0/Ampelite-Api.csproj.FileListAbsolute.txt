@@ -1,0 +1,11 @@
+C:\Users\Programer01\Source\Repos\Ampelite\Ampelite-Api\bin\Debug\netcoreapp2.0\Ampelite-Api.deps.json
+C:\Users\Programer01\Source\Repos\Ampelite\Ampelite-Api\bin\Debug\netcoreapp2.0\Ampelite-Api.runtimeconfig.json
+C:\Users\Programer01\Source\Repos\Ampelite\Ampelite-Api\bin\Debug\netcoreapp2.0\Ampelite-Api.runtimeconfig.dev.json
+C:\Users\Programer01\Source\Repos\Ampelite\Ampelite-Api\bin\Debug\netcoreapp2.0\Ampelite-Api.dll
+C:\Users\Programer01\Source\Repos\Ampelite\Ampelite-Api\bin\Debug\netcoreapp2.0\Ampelite-Api.pdb
+C:\Users\Programer01\Source\Repos\Ampelite\Ampelite-Api\obj\Debug\netcoreapp2.0\Ampelite-Api.csprojResolveAssemblyReference.cache
+C:\Users\Programer01\Source\Repos\Ampelite\Ampelite-Api\obj\Debug\netcoreapp2.0\Ampelite-Api.csproj.CoreCompileInputs.cache
+C:\Users\Programer01\Source\Repos\Ampelite\Ampelite-Api\obj\Debug\netcoreapp2.0\Ampelite-Api.AssemblyInfoInputs.cache
+C:\Users\Programer01\Source\Repos\Ampelite\Ampelite-Api\obj\Debug\netcoreapp2.0\Ampelite-Api.AssemblyInfo.cs
+C:\Users\Programer01\Source\Repos\Ampelite\Ampelite-Api\obj\Debug\netcoreapp2.0\Ampelite-Api.dll
+C:\Users\Programer01\Source\Repos\Ampelite\Ampelite-Api\obj\Debug\netcoreapp2.0\Ampelite-Api.pdb
