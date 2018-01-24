@@ -49,8 +49,10 @@ class Header extends Component {
     constructor() {
         super();
         this.state = {
+            open: false,
             anchorEl: null,
         }
+        this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
     }
 
     signOut = () => {
@@ -72,12 +74,10 @@ class Header extends Component {
         this.props.handleDrawerOpen(true)
     };
 
-
-
     render() {
         const { classes, open } = this.props;
         const { anchorEl } = this.state;
-        
+
         return (
             <AppBar
                 className={classNames(classes.appBar, {
@@ -144,7 +144,6 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-    open: PropTypes.bool.isRequired,
     handleDrawerOpen: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
