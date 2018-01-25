@@ -11,7 +11,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using AmpeliteApi.Models;
 
-namespace Ampelite_Api
+namespace AmpeliteApi
 {
     public class Startup
     {
@@ -31,7 +31,7 @@ namespace Ampelite_Api
             });
 
             services.AddApplicationInsightsTelemetry(Configuration);
-            var strConn = @"Server=.\SQLExpress;Database=db_Ampelite;Trusted_Connection=True;";
+            var strConn = @"Server=AMPELITE-001\SQLEXPRESS01;Database=db_Ampelite;Trusted_Connection=True;user id=sa;password=Amp7896321;";
             services.AddDbContext<db_AmpeliteContext>(option => option.UseSqlServer(strConn));
             // Add framework services.
             services.AddMvc();

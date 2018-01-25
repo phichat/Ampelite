@@ -1,0 +1,10 @@
+C:\Users\Administrator\source\repos\Ampelite\AmpeliteApi\bin\Any CPU\Release\netcoreapp2.0\AmpeliteApi.deps.json
+C:\Users\Administrator\source\repos\Ampelite\AmpeliteApi\bin\Any CPU\Release\netcoreapp2.0\AmpeliteApi.runtimeconfig.json
+C:\Users\Administrator\source\repos\Ampelite\AmpeliteApi\bin\Any CPU\Release\netcoreapp2.0\AmpeliteApi.runtimeconfig.dev.json
+C:\Users\Administrator\source\repos\Ampelite\AmpeliteApi\bin\Any CPU\Release\netcoreapp2.0\AmpeliteApi.dll
+C:\Users\Administrator\source\repos\Ampelite\AmpeliteApi\bin\Any CPU\Release\netcoreapp2.0\AmpeliteApi.pdb
+C:\Users\Administrator\source\repos\Ampelite\AmpeliteApi\obj\Any CPU\Release\netcoreapp2.0\AmpeliteApi.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\Ampelite\AmpeliteApi\obj\Any CPU\Release\netcoreapp2.0\AmpeliteApi.AssemblyInfoInputs.cache
+C:\Users\Administrator\source\repos\Ampelite\AmpeliteApi\obj\Any CPU\Release\netcoreapp2.0\AmpeliteApi.AssemblyInfo.cs
+C:\Users\Administrator\source\repos\Ampelite\AmpeliteApi\obj\Any CPU\Release\netcoreapp2.0\AmpeliteApi.dll
+C:\Users\Administrator\source\repos\Ampelite\AmpeliteApi\obj\Any CPU\Release\netcoreapp2.0\AmpeliteApi.pdb

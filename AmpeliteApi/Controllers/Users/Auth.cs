@@ -48,23 +48,21 @@ namespace AmpeliteApi.Controllers.Users
             return true;
         }
 
-        public static string GetMacAddress()
+        public static List<string> GetMacAddress()
         {
             NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
 
-            string macAddress = string.Empty;
+            var macAddress = new List<string>();
             foreach (NetworkInterface adapter in nics)
             {
                 if (adapter.OperationalStatus.ToString().ToUpper() == "UP")
                 {
-                    if (adapter.Name.ToUpper() == "ETHERNET" || adapter.Name.ToUpper() == "WI-FI")
-                    {
                         IPInterfaceProperties properties = adapter.GetIPProperties();
                         PhysicalAddress address = adapter.GetPhysicalAddress();
                         byte[] bytes = address.GetAddressBytes();
                         PhysicalAddress newAddress = new PhysicalAddress(bytes);
-                        macAddress = newAddress.ToString();
-                    }
+                        macAddress.Add(newAddress.ToString());
+                    
                 }
             }
             return macAddress;
