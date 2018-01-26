@@ -39,6 +39,7 @@ namespace AmpeliteApi.Controllers.Users {
             return true;
         }
 
+<<<<<<< HEAD
         public static List<string> GetMacAddress () {
             NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces ();
 
@@ -50,6 +51,23 @@ namespace AmpeliteApi.Controllers.Users {
                     byte[] bytes = address.GetAddressBytes ();
                     PhysicalAddress newAddress = new PhysicalAddress (bytes);
                     macAddress.add (newAddress.ToString ());
+=======
+        public static List<string> GetMacAddress()
+        {
+            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+
+            var macAddress = new List<string>();
+            foreach (NetworkInterface adapter in nics)
+            {
+                if (adapter.OperationalStatus.ToString().ToUpper() == "UP")
+                {
+                        IPInterfaceProperties properties = adapter.GetIPProperties();
+                        PhysicalAddress address = adapter.GetPhysicalAddress();
+                        byte[] bytes = address.GetAddressBytes();
+                        PhysicalAddress newAddress = new PhysicalAddress(bytes);
+                        macAddress.Add(newAddress.ToString());
+                    
+>>>>>>> 8d4fdf9b6e9ae9ce8136427954ed6e7d218db159
                 }
             }
             return macAddress;
