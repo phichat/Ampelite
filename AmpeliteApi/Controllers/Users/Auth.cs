@@ -30,7 +30,7 @@ namespace AmpeliteApi.Controllers.Users {
                 IBase64UrlEncoder urlEncoder = new JwtBase64UrlEncoder ();
                 IJwtDecoder decoder = new JwtDecoder (serializer, validator, urlEncoder);
 
-                var json = decoder.Decode (token, secret, verify: true);
+                var json = decoder.Decode (token, secret, verify : true);
             } catch (TokenExpiredException) {
                 return true;
             } catch (SignatureVerificationException) {
@@ -39,35 +39,17 @@ namespace AmpeliteApi.Controllers.Users {
             return true;
         }
 
-<<<<<<< HEAD
         public static List<string> GetMacAddress () {
             NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces ();
 
-            var List<string> macAddress;
+            var macAddress = new List<string> ();
             foreach (NetworkInterface adapter in nics) {
                 if (adapter.OperationalStatus.ToString ().ToUpper () == "UP") {
                     IPInterfaceProperties properties = adapter.GetIPProperties ();
                     PhysicalAddress address = adapter.GetPhysicalAddress ();
                     byte[] bytes = address.GetAddressBytes ();
                     PhysicalAddress newAddress = new PhysicalAddress (bytes);
-                    macAddress.add (newAddress.ToString ());
-=======
-        public static List<string> GetMacAddress()
-        {
-            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
-
-            var macAddress = new List<string>();
-            foreach (NetworkInterface adapter in nics)
-            {
-                if (adapter.OperationalStatus.ToString().ToUpper() == "UP")
-                {
-                        IPInterfaceProperties properties = adapter.GetIPProperties();
-                        PhysicalAddress address = adapter.GetPhysicalAddress();
-                        byte[] bytes = address.GetAddressBytes();
-                        PhysicalAddress newAddress = new PhysicalAddress(bytes);
-                        macAddress.Add(newAddress.ToString());
-                    
->>>>>>> 8d4fdf9b6e9ae9ce8136427954ed6e7d218db159
+                    macAddress.Add (newAddress.ToString ());
                 }
             }
             return macAddress;
