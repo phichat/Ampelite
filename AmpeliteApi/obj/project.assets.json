@@ -13204,12 +13204,15 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "c:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\AmpeliteApi.csproj",
+      "projectUniqueName": "C:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\AmpeliteApi.csproj",
       "projectName": "AmpeliteApi",
-      "projectPath": "c:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\AmpeliteApi.csproj",
+      "projectPath": "C:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\AmpeliteApi.csproj",
       "packagesPath": "C:\\Users\\Programer01\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\obj\\",
+      "outputPath": "C:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13239,18 +13242,22 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "Microsoft.NETCore.App": {
+          "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
-            "version": "2.0.0",
-            "autoReferenced": true
+            "version": "5.1.5"
+          },
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "target": "Package",
+            "version": "2.0.0"
           },
           "JWT": {
             "target": "Package",
             "version": "3.1.1"
           },
-          "Microsoft.AspNetCore.All": {
+          "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "2.0.0"
+            "version": "2.0.0",
+            "autoReferenced": true
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
@@ -13260,13 +13267,9 @@
             "target": "Package",
             "version": "1.1.5"
           },
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+          "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.0"
-          },
-          "System.IdentityModel.Tokens.Jwt": {
-            "target": "Package",
-            "version": "5.1.5"
           }
         },
         "imports": [
