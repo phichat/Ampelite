@@ -37,7 +37,7 @@ namespace AmpeliteApi.Controllers.Users
         //}
 
         // POST: api/Auth
-        [Route("api/Auth/SignIn")]
+        [Route("Auth/SignIn")]
         [HttpPost]
         public async Task<IActionResult> Authtication([FromBody] SignIn signin)
         {
@@ -66,37 +66,38 @@ namespace AmpeliteApi.Controllers.Users
             }
             else
             {
-                string macAddress = Auth.GetMacAddress();
+                List<string> macAddress = Auth.GetMacAddress();
                 string hash = customer[0].Password;
-                if (macAddress == customer[0].MacAddress)
-                {
-                    using (MD5 md5Hash = MD5.Create())
-                    {
-                        if (Auth.VerifyMd5Hash(md5Hash, signin.Password, hash))
-                        {
-                            var payload = new Dictionary<string, object>
-                            {
-                                { "UserID", customer[0].UserId},
-                                { "Username", customer[0].UserName },
-                            };
-                            var token = Auth.JwtEncoder(payload);
-                            var obj = new Dictionary<string, object>
-                            {
-                                {"access_token", token}
-                            };
-                            Response.Headers.Add("Authorization", token);
-                            return Ok(obj);
-                        }
-                        else
-                        {
-                            return StatusCode(401);
-                        }
-                    }
-                }
-                else
-                {
-                    return StatusCode(401);
-                }
+                return "";
+                // if (macAddress == customer[0].MacAddress)
+                // {
+                //     using (MD5 md5Hash = MD5.Create())
+                //     {
+                //         if (Auth.VerifyMd5Hash(md5Hash, signin.Password, hash))
+                //         {
+                //             var payload = new Dictionary<string, object>
+                //             {
+                //                 { "UserID", customer[0].UserId},
+                //                 { "Username", customer[0].UserName },
+                //             };
+                //             var token = Auth.JwtEncoder(payload);
+                //             var obj = new Dictionary<string, object>
+                //             {
+                //                 {"access_token", token}
+                //             };
+                //             Response.Headers.Add("Authorization", token);
+                //             return Ok(obj);
+                //         }
+                //         else
+                //         {
+                //             return StatusCode(401);
+                //         }
+                //     }
+                // }
+                // else
+                // {
+                //     return StatusCode(401);
+                // }
             }
         }
     }
