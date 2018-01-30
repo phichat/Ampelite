@@ -27,9 +27,9 @@ const App = () => (
       <MuiThemeProvider theme={theme}>
         <div style={{ height: '100vh', backgroundColor: grey[50] }}>       
           <Switch>
-            <Route exact path="/AmpeliteWeb" component={MainWarpper} />
-            <Route path='/AmpeliteWeb/sign-in' component={Signin} />
-            <Route path='/AmpeliteWeb/sign-up' component={Signup} />
+            <Route exact path="/" component={MainWarpper} />
+            <Route path='/sign-in' component={Signin} />
+            <Route path='/sign-up' component={Signup} />
           </Switch>
         </div>
       </MuiThemeProvider>

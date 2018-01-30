@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename="/AmpeliteWeb">
         <App />
     </BrowserRouter>
     , document.getElementById('root'));

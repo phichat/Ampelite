@@ -5,7 +5,7 @@ import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import { Header } from './';
-import { Sidebar } from '../containers';
+import { Sidebar } from '../containers/';
 import { Auth } from '../lib';
 
 const drawerWidth = 240;
@@ -83,7 +83,7 @@ class MainWarpper extends Component {
   }
   componentDidMount() {
     if (!Auth.getToken()) {
-      window.location.href = '/AmpeliteWeb/sign-in'
+      window.location.href = '/sign-in'
     }
   }
 

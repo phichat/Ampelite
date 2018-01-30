@@ -5,7 +5,7 @@ import Card, { CardContent, CardActions } from 'material-ui/Card';
 import { Typography, TextField, Button, } from 'material-ui';
 import { PersonAdd, Help } from 'material-ui-icons';
 import { grey } from 'material-ui/colors';
-import { LinearProgress } from 'material-ui/Progress';
+// import { LinearProgress } from 'material-ui/Progress';
 
 const styles = theme => ({
     form: {
@@ -92,9 +92,9 @@ class AuthForm extends Component {
             <form className={classes.form}>
 
                 <Card>
-                    <div className={classes.progress}>
+                    {/* <div className={classes.progress}>
                         <LinearProgress mode="determinate" value={this.state.completed} />
-                    </div>
+                    </div> */}
                     <CardContent>
                         <Typography type="headline">{formName}</Typography>
                         <TextField

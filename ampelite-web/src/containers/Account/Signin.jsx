@@ -55,7 +55,7 @@ class SiginContainer extends Component {
             })
             .then(() => {
                 if (Auth.getToken()) {
-                    history.push('/AmpeliteWeb')
+                    history.push('/')
                 } else {
                     this.handleOpenDialog()
                 }

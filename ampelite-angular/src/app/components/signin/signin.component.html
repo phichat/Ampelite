@@ -1,3 +1,22 @@
-<h1>
-  signin works!
-</h1>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Sign In to ampelite</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form class="example-form" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="User name">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Enter your password" type="password">
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="text-right">
+    <button mat-raised-button color="primary" (click)="submit()">Sign In</button>
+  </mat-card-actions>
+</mat-card>

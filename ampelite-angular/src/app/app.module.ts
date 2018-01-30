@@ -4,7 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { CdkTableModule } from '@angular/cdk/table';
+import { importType } from '@angular/compiler/src/output/output_ast';
 
 import { MaterialModule } from './modules/material/material.module';
 import { AppComponent } from './components/app/app.component';
@@ -13,27 +16,21 @@ import { HomeComponent } from './components/home/home.component';
 import { NavmenuComponent } from './components/navmenu/navmenu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SigninComponent } from './components/signin/signin.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { AlertComponent } from './components/alert/alert.component';
 
-import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
-import { CdkTableModule } from '@angular/cdk/table';
-import { importType } from '@angular/compiler/src/output/output_ast';
+import { AuthGuard } from './_guards/index';
+import { AuthenticationService } from './_services/index'
+import { CanActivateViaAuthGuard } from './can-activate-via-auth.guard';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'sign-in', component: SigninComponent },
-  {
-    path: 'home',
-    component: HomeComponent,
-    data: { title: 'Home' }
-  },
-  {
-    path: '',  
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  { path: '**', component: HomeComponent }
+  // { path: 'home', component: HomeComponent, data: { title: 'Home' } },
+  { path: '**', component: NotfoundComponent }
 ];
+
 
 @NgModule({
   declarations: [
@@ -42,7 +39,9 @@ const appRoutes: Routes = [
     HomeComponent,
     NavmenuComponent,
     HeaderComponent,
-    SigninComponent
+    SigninComponent,
+    NotfoundComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +59,15 @@ const appRoutes: Routes = [
 
 
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+    AuthGuard,
+    { provide: 'API_URL', useFactory: getBaseUrl }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
+
+export function getBaseUrl() {
+  return 'http://203.154.45.40';
+}
