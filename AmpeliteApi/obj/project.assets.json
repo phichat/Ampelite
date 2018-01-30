@@ -13199,8 +13199,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Programer01\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/phichet/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -13208,24 +13208,30 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "/Users/phichet/Documents/project/Ampelite/AmpeliteApi/AmpeliteApi.csproj",
+      "projectName": "AmpeliteApi",
+      "projectPath": "/Users/phichet/Documents/project/Ampelite/AmpeliteApi/AmpeliteApi.csproj",
+      "packagesPath": "/Users/phichet/.nuget/packages/",
+      "outputPath": "/Users/phichet/Documents/project/Ampelite/AmpeliteApi/obj/",
+=======
       "projectUniqueName": "C:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\AmpeliteApi.csproj",
       "projectName": "AmpeliteApi",
       "projectPath": "C:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\AmpeliteApi.csproj",
       "packagesPath": "C:\\Users\\Programer01\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\obj\\",
+>>>>>>> ebbcc5c7f73bf983eb299139e665d9b2050d506c
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Programer01\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/phichet/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
