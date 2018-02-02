@@ -83,7 +83,7 @@ class MainWarpper extends Component {
   }
   componentDidMount() {
     if (!Auth.getToken()) {
-      window.location.href = '/sign-in'
+      window.location.href = '/AmpeliteWeb/sign-in'
     }
   }
 

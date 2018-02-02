@@ -22,11 +22,14 @@ import { AlertComponent } from './components/alert/alert.component';
 import { AuthGuard } from './_guards/index';
 import { AuthenticationService } from './_services/index'
 import { CanActivateViaAuthGuard } from './can-activate-via-auth.guard';
+import { ContentComponent } from './components/content/content.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'sign-in', component: SigninComponent },
+  { path: 'app-navmenu', component: NavmenuComponent },
   // { path: 'home', component: HomeComponent, data: { title: 'Home' } },
   { path: '**', component: NotfoundComponent }
 ];
@@ -41,7 +44,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     SigninComponent,
     NotfoundComponent,
-    AlertComponent
+    AlertComponent,
+    ContentComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
@@ -54,7 +59,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true }
+      // { enableTracing: true }
     )
 
 

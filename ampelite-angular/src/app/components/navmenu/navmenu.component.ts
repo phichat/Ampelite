@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navmenu',
@@ -7,20 +6,20 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./navmenu.component.css']
 })
 export class NavmenuComponent implements OnInit {
-  @ViewChild('sidenav') sidenav: MatSidenav;
+  // @ViewChild('sidenav') sidenav: MatSidenav;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  reason = '';
+  // reason = '';
 
-  close(reason: string) {
-    this.reason = reason;
-    this.sidenav.close();
-  }
+  // close(reason: string) {
+  //   this.reason = reason;
+  //   this.sidenav.close();
+  // }
 
-  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+  // shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 
 }

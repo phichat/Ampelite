@@ -8,24 +8,20 @@ import { appConfig } from '../app.config';
 @Injectable()
 export class AuthenticationService {
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
-    this.http.post(appConfig.apiUrl + '/Api/Auth/SignIn', { "userName": "phichat", "password": "7322801dk" })
-      .subscribe(result => {
-        result.json();
-      }, error => console.error(error));
-    // return this.http.post<any>(appConfig.apiUrl + '/Api/Auth/SignIn', { "userName": "phichat", "password": "7322801dk" })
-    //   .map(user => {
-    //     // login successful if there's a jwt token in the response
-    //     if (user && user.token) {
-    //       // store user details and jwt token in local storage to keep user logged in between page refreshes
-    //       localStorage.setItem('currentUser', JSON.stringify(user));
-    //       console.log(JSON.stringify(user))
-    //     }
+    return this.http.post<any>(appConfig.apiUrl + '/Api/Auth/SignIn', { "userName": username, "password": password })
+      .map(user => {
+        // login successful if there's a jwt token in the response
+        if (user && user.access_token) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          debugger
+          localStorage.setItem('currentUser', JSON.stringify(user));
+        }
 
-    //     return user;
-    //   });
+        return user;
+      });
   }
 
   logout() {

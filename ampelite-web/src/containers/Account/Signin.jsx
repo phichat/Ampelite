@@ -20,6 +20,7 @@ class SiginContainer extends Component {
     state = {
         open: false,
         statusText: '',
+        loadProgress: false,
     }
 
     handleOpenDialog = () => {
@@ -33,6 +34,7 @@ class SiginContainer extends Component {
 
     handleFormSubmit = credential => {
         const { history } = this.props;
+        this.setState({ loadProgress: true })
         fetch('/Api/Auth/SignIn', {
             method: 'POST',
             headers: {
@@ -59,11 +61,13 @@ class SiginContainer extends Component {
                 } else {
                     this.handleOpenDialog()
                 }
+                this.setState({ loadProgress: false })
             })
 
     }
 
     render() {
+        let { loadProgress } = this.state;
         const Unauthorized = <div>
             <Dialog
                 disableBackdropClick
@@ -97,6 +101,7 @@ class SiginContainer extends Component {
                 <AuthForm
                     formName='Sign in'
                     onSubmit={this.handleFormSubmit}
+                    onLoadProgress={loadProgress}
                 />
                 {Unauthorized}
             </div>

@@ -1,18 +1,10 @@
-<!-- <div style="text-align:center">
-    <h1>
-        Angular Router
-    </h1>
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+    <app-navbar (navToggle)="snav.toggle()"></app-navbar>
+    <app-navmenu #snav></app-navmenu>
 </div>
 
-<nav>
-    <a routerLink="/home">Home</a> |
-    <a routerLink="/signin">Sign in</a>
-</nav> -->
 
-<router-outlet></router-outlet>
 
-<!-- <nav>
-    <button (click)="goHome()">Home</button>
-    <button (click)="goSignin()">Sign In</button>
-    <button (click)="onActivate()">activate {{getCurrentState}}</button>
-</nav> -->
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->

@@ -32,8 +32,8 @@ export class SigninComponent implements OnInit {
   submit() {
     this.loading = true;
     this.authenticationService.login(this.model.username, this.model.password)
-      .subscribe(
-      data => {
+      .subscribe(data => {
+        console.log(data)
         this.router.navigate([this.returnUrl]);
       },
       error => {
