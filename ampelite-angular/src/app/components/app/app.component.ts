@@ -15,16 +15,15 @@ export class AppComponent {
   private _mobileQueryListener: () => void;
 
   @ViewChild("snav") public snav;
-// constructor(public mySuperService: MySuperService) {
-//     this.mySuperService.sidenav = this.mainNav;
-// }
-
+  
   constructor(private route: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
+  onToggle(open){
+  };
   
  
 

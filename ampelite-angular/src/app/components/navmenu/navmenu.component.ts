@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navmenu',
@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavmenuComponent implements OnInit {
   // @ViewChild('sidenav') sidenav: MatSidenav;
-
+  
+  @Output()
+  isToggleNavmenu = new EventEmitter<boolean>();
   constructor() { }
+
+  @Input() toggle;
 
   ngOnInit() {
   }

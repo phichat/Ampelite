@@ -1,6 +1,7 @@
 <div class="container" [class.is-mobile]="mobileQuery.matches">
-    <app-navbar (navToggle)="snav.toggle()"></app-navbar>
-    <app-navmenu #snav></app-navmenu>
+    <app-navmenu [toggle]="toggle"></app-navmenu>
+    <app-navbar></app-navbar>
+
 </div>
 
 
