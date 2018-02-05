@@ -14,7 +14,6 @@ import { AppComponent } from './components/app/app.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavmenuComponent } from './components/navmenu/navmenu.component';
-import { HeaderComponent } from './components/header/header.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AlertComponent } from './components/alert/alert.component';
@@ -22,7 +21,6 @@ import { AlertComponent } from './components/alert/alert.component';
 import { AuthGuard } from './_guards/index';
 import { AuthenticationService } from './_services/index'
 import { CanActivateViaAuthGuard } from './can-activate-via-auth.guard';
-import { ContentComponent } from './components/content/content.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 const appRoutes: Routes = [
@@ -41,11 +39,9 @@ const appRoutes: Routes = [
     AuthComponent,
     HomeComponent,
     NavmenuComponent,
-    HeaderComponent,
     SigninComponent,
     NotfoundComponent,
     AlertComponent,
-    ContentComponent,
     NavbarComponent
   ],
   imports: [

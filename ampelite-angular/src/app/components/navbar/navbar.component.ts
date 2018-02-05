@@ -9,13 +9,7 @@ export class NavbarComponent {
 
   @Output() navToggle = new EventEmitter<boolean>();
   navOpen() {
-    this.toggle = !this.toggle;
-    this.navToggle.emit(this.toggle);
+    this.navToggle.emit(true);
   }
-
-  @Input() toggle;
-
-  constructor() { }
-
 
 }

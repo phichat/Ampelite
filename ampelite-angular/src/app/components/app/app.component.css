@@ -1,15 +1,25 @@
+
 .container {
-  display: flex;
-  flex-direction: column;
   position: absolute;
-  top: 0;
+  top: 60px;
   bottom: 0;
   left: 0;
   right: 0;
 }
-
-.is-mobile {
+.header {
   position: fixed;
-  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
+}
+
+.sidenav {
+  display: flex;
+  width: 240px;
+}
+
+.sidenav-content {
+  min-height: 100vh;
+  padding: 80px 3rem 1rem;
 }

@@ -1,7 +1,8 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgModel } from '@angular/forms/src/directives/ng_model';
+
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -10,25 +11,14 @@ import { NgModel } from '@angular/forms/src/directives/ng_model';
 })
 
 export class AppComponent {
-  mobileQuery: MediaQueryList;
 
-  private _mobileQueryListener: () => void;
+  @ViewChild('sidenav') sidenav: MatSidenav;
 
-  @ViewChild("snav") public snav;
-  
-  constructor(private route: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
-  }
+  reason = '';
 
-  onToggle(open){
-  };
-  
- 
-
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
   }
 
 }

@@ -1,11 +1,11 @@
-<div class="container" [class.is-mobile]="mobileQuery.matches">
-    <app-navmenu [toggle]="toggle"></app-navmenu>
-    <app-navbar></app-navbar>
+<app-navbar class="header" (navToggle)="sidenav.toggle()"></app-navbar>
+<!-- (navToggle)="sidenav.toggle()" -->
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidenav mode="side" opened="true" class="sidenav mat-elevation-z6">
+        <app-navmenu></app-navmenu>
+    </mat-sidenav>
 
-</div>
-
-
-
-<!-- Copyright 2018 Google Inc. All Rights Reserved.
-      Use of this source code is governed by an MIT-style license that
-      can be found in the LICENSE file at http://angular.io/license -->
+    <mat-sidenav-content class="sidenav-content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
