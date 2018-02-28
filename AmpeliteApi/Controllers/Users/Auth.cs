@@ -48,25 +48,25 @@ namespace AmpeliteApi.Controllers.Users
             return true;
         }
 
-        public static List<string> GetMacAddress()
-        {
-            NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+        //public static List<string> GetMacAddress()
+        //{
+        //    NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
 
-            var macAddress = new List<string>();
-            foreach (NetworkInterface adapter in nics)
-            {
-                if (adapter.OperationalStatus.ToString().ToUpper() == "UP")
-                {
-                        IPInterfaceProperties properties = adapter.GetIPProperties();
-                        PhysicalAddress address = adapter.GetPhysicalAddress();
-                        byte[] bytes = address.GetAddressBytes();
-                        PhysicalAddress newAddress = new PhysicalAddress(bytes);
-                        macAddress.Add(newAddress.ToString());
+        //    var macAddress = new List<string>();
+        //    foreach (NetworkInterface adapter in nics)
+        //    {
+        //        if (adapter.OperationalStatus.ToString().ToUpper() == "UP")
+        //        {
+        //                IPInterfaceProperties properties = adapter.GetIPProperties();
+        //                PhysicalAddress address = adapter.GetPhysicalAddress();
+        //                byte[] bytes = address.GetAddressBytes();
+        //                PhysicalAddress newAddress = new PhysicalAddress(bytes);
+        //                macAddress.Add(newAddress.ToString());
                     
-                }
-            }
-            return macAddress;
-        }
+        //        }
+        //    }
+        //    return macAddress;
+        //}
 
         public static string GetMd5Hash(MD5 md5Hash, string input)
         {

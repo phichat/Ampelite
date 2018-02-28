@@ -18,6 +18,7 @@ namespace AmpeliteApi
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
         }
 
         public IConfiguration Configuration { get; }
@@ -25,13 +26,11 @@ namespace AmpeliteApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowSpecificOrigin", builder => builder.WithOrigins("http://localhost:3000/AmpeliteWeb"));
-            });
-
             services.AddApplicationInsightsTelemetry(Configuration);
+            //services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
             var strConn = @"Server=AMPELITE-001\SQLEXPRESS01;Database=db_Ampelite;Trusted_Connection=True;user id=sa;password=Amp7896321;";
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<db_AmpeliteContext>(option => option.UseSqlServer(strConn));
             // Add framework services.
             services.AddMvc();
@@ -45,12 +44,12 @@ namespace AmpeliteApi
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseCors("AllowSpecificOrigin");
-            app.UseCors(option => option.AllowAnyOrigin());
-            app.UseCors(option => option.AllowAnyMethod());
-            app.UseCors(option => option.AllowAnyHeader());
-            app.UseCors(option => option.WithExposedHeaders("X-My-Custom-Header, X-Another-Custom-Header"));
-            app.UseCors(option => option.AllowCredentials());
+            ////app.UseCors("AllowSpecificOrigin");
+            //app.UseCors(option => option.AllowAnyOrigin());
+            //app.UseCors(option => option.AllowAnyMethod());
+            //app.UseCors(option => option.AllowAnyHeader());
+            //app.UseCors(option => option.WithExposedHeaders("X-My-Custom-Header, X-Another-Custom-Header"));
+            //app.UseCors(option => option.AllowCredentials());
 
             app.UseMvc();
         }

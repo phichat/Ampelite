@@ -1,26 +1,35 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AmpeliteApi.Models
 {
-    public partial class db_AmpeliteContext : DbContext
+    public class db_AmpeliteContext : DbContext
     {
         public virtual DbSet<AuthDevices> AuthDevices { get; set; }
         public virtual DbSet<AuthPermissions> AuthPermissions { get; set; }
         public virtual DbSet<AuthTransactions> AuthTransactions { get; set; }
+        public virtual DbSet<DailypoGroupReport> DailypoGroupReport { get; set; }
+        public virtual DbSet<DailypoGroupUnit> DailypoGroupUnit { get; set; }
+        public virtual DbSet<DailypoProductGroup> DailypoProductGroup { get; set; }
+        public virtual DbSet<DailypoProductTeam> DailypoProductTeam { get; set; }
+        public virtual DbSet<DailypoGraphProduct> DailypoGraphProduct { get; set; }
         public virtual DbSet<HrEmployee> HrEmployee { get; set; }
 
-        //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //        {
-        //            if (!optionsBuilder.IsConfigured)
-        //            {
-        ////#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-        //                optionsBuilder.UseSqlServer(@"Server=.\SQLExpress;Database=db_Ampelite;Trusted_Connection=True;");
-        //            }
-        //        }
+        // Unable to generate entity type for table 'dbo.GET_TransactionInv'. Please see the warning messages.
+        // Unable to generate entity type for table 'dbo.GET_TransactionSO'. Please see the warning messages.
 
-        public db_AmpeliteContext(DbContextOptions<db_AmpeliteContext> options) : base(options) { }
+        //public db_AmpeliteContext(DbContextOptions<db_AmpeliteContext> options) : base(options) { }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    //if (!optionsBuilder.IsConfigured)
+        //    //{
+        //    //    #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+        //    //    optionsBuilder.UseSqlServer(@"Server=AMPELITE-001\SQLEXPRESS01;Database=db_Ampelite;Trusted_Connection=True;user id=sa;password=Amp7896321;");
+        //    //}
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -53,7 +62,7 @@ namespace AmpeliteApi.Models
                     .WithMany(p => p.AuthDevices)
                     .HasForeignKey(d => d.SEmpId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_AUTH_Devices_HR_Employee1");
+                    .HasConstraintName("FK__AUTH_Devi__sEmpI__398D8EEE");
             });
 
             modelBuilder.Entity<AuthPermissions>(entity =>
@@ -88,7 +97,7 @@ namespace AmpeliteApi.Models
                     .WithMany(p => p.AuthPermissions)
                     .HasForeignKey(d => d.SEmpId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_AUTH_Permissions_HR_Employee");
+                    .HasConstraintName("FK__AUTH_Perm__sEmpI__412EB0B6");
             });
 
             modelBuilder.Entity<AuthTransactions>(entity =>
@@ -115,7 +124,113 @@ namespace AmpeliteApi.Models
                     .WithMany(p => p.AuthTransactions)
                     .HasForeignKey(d => d.SEmpId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_AUTH_Transactions_HR_Employee");
+                    .HasConstraintName("FK__AUTH_Tran__sEmpI__46E78A0C");
+            });
+
+            modelBuilder.Entity<DailypoGroupReport>(entity =>
+            {
+                entity.HasKey(e => e.GroupCode);
+
+                entity.ToTable("DAILYPO_GroupReport");
+
+                entity.Property(e => e.GroupCode)
+                    .HasMaxLength(20)
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.GroupName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<DailypoGroupUnit>(entity =>
+            {
+                entity.HasKey(e => e.UnitId);
+
+                entity.ToTable("DAILYPO_GroupUnit");
+
+                entity.Property(e => e.UnitId).HasColumnName("UnitID");
+
+                entity.Property(e => e.GroupCode)
+                    .IsRequired()
+                    .HasMaxLength(10);
+
+                entity.Property(e => e.UnitCode)
+                    .IsRequired()
+                    .HasMaxLength(10);
+
+                entity.Property(e => e.UnitName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.UnitTitle).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<DailypoProductGroup>(entity =>
+            {
+                entity.ToTable("DAILYPO_ProductGroup");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.GoodBrandCode)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.GoodBrandName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.GroupBrandCode)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.GroupBrandName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Product)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProductCode)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProductType)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<DailypoProductTeam>(entity =>
+            {
+                entity.HasKey(e => e.GptId);
+
+                entity.ToTable("DAILYPO_ProductTeam");
+
+                entity.Property(e => e.GptId).HasColumnName("GPT_ID");
+
+                entity.Property(e => e.Product)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProductCode)
+                    .HasMaxLength(25)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ReCateProduct)
+                    .HasMaxLength(25)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TeamCode)
+                    .HasMaxLength(25)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TeamName)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<HrEmployee>(entity =>
@@ -316,6 +431,8 @@ namespace AmpeliteApi.Models
                     .HasColumnName("update_at")
                     .HasColumnType("datetime");
             });
+
+
         }
     }
 }
