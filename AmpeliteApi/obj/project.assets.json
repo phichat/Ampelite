@@ -13199,8 +13199,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/phichet/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -13208,24 +13208,30 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\Ampelite\\AmpeliteApi\\AmpeliteApi.csproj",
+<<<<<<< HEAD
+      "projectUniqueName": "/Users/phichet/Documents/project/Ampelite/AmpeliteApi/AmpeliteApi.csproj",
       "projectName": "AmpeliteApi",
-      "projectPath": "C:\\Users\\Administrator\\source\\repos\\Ampelite\\AmpeliteApi\\AmpeliteApi.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\source\\repos\\Ampelite\\AmpeliteApi\\obj\\",
+      "projectPath": "/Users/phichet/Documents/project/Ampelite/AmpeliteApi/AmpeliteApi.csproj",
+      "packagesPath": "/Users/phichet/.nuget/packages/",
+      "outputPath": "/Users/phichet/Documents/project/Ampelite/AmpeliteApi/obj/",
+=======
+      "projectUniqueName": "C:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\AmpeliteApi.csproj",
+      "projectName": "AmpeliteApi",
+      "projectPath": "C:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\AmpeliteApi.csproj",
+      "packagesPath": "C:\\Users\\Programer01\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Programer01\\Source\\Repos\\Ampelite\\AmpeliteApi\\obj\\",
+>>>>>>> ebbcc5c7f73bf983eb299139e665d9b2050d506c
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/phichet/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -13242,34 +13248,34 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "JWT": {
+          "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
-            "version": "[3.1.1, )"
-          },
-          "Microsoft.AspNetCore.All": {
-            "target": "Package",
-            "version": "[2.0.0, )"
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
-            "target": "Package",
-            "version": "[2.0.1, )"
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer.Design": {
-            "target": "Package",
-            "version": "[1.1.5, )"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "[2.0.0, )",
-            "autoReferenced": true
+            "version": "5.1.5"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
-            "version": "[2.0.0, )"
+            "version": "2.0.0"
           },
-          "System.IdentityModel.Tokens.Jwt": {
+          "JWT": {
             "target": "Package",
-            "version": "[5.1.5, )"
+            "version": "3.1.1"
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "2.0.0",
+            "autoReferenced": true
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "2.0.1"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer.Design": {
+            "target": "Package",
+            "version": "1.1.5"
+          },
+          "Microsoft.AspNetCore.All": {
+            "target": "Package",
+            "version": "2.0.0"
           }
         },
         "imports": [
